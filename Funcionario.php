@@ -1,13 +1,15 @@
 <?php
     namespace PHP\Modelo;
     require_once('Pessoa.php');
+    require_once('Endereco.php');
     use PHP\Modelo\Pessoa;
+    use PHP\Modelo\Endereco;
 
     class Funcionario extends Pessoa{
         protected string $cargo;
         protected float $salario;
 
-        public function __construct(string $cpf, string $nome, string $telefone, string $endereco, string $cargo, float $salario)
+        public function __construct(string $cpf, string $nome, string $telefone, string $cargo, float $salario, Endereco $endereco)
         {
             parent:: __construct($cpf,$nome,$telefone,$endereco);
             $this -> cargo = $cargo;

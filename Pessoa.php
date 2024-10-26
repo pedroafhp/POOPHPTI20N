@@ -1,14 +1,16 @@
 <?php
     namespace PHP\Modelo;
+    require_once('Endereco.php');
+    use PHP\Modelo\Endereco;
 
     class Pessoa {
         protected string $cpf;
         protected string $nome;
         protected string $telefone;
-        protected string $endereco;
+        protected Endereco $endereco;
 
 
-        public function __construct(string $cpf, string $nome, string $telefone, string $endereco)
+        public function __construct(string $cpf, string $nome, string $telefone, Endereco $endereco)
         {
             $this -> cpf = $cpf;
             $this -> nome = $nome;
@@ -31,8 +33,7 @@
         {
             return  "<br>CPF: ".$this -> cpf.
                     "<br>Nome: ".$this -> nome.
-                    "<br>Telefone: ".$this -> telefone.
-                    "<br>Endereço: ".$this -> endereco;
+                    "<br>Telefone: ".$this -> telefone;
         }//Fim do Imprimir
 
 

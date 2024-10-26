@@ -2,14 +2,16 @@
     namespace PHP\Modelo;
 
     require_once('Pessoa.php');
+    require_once('Endereco.php');
     use PHP\Modelo\Pessoa;
+    use PHP\Modelo\Endereco;
 
     Class Cliente extends Pessoa{
         protected float $precoTotal;
 
-        public function __construct(string $cpf, string $nome, string $telefone, string $endereco, float $precoTotal)
+        public function __construct(string $cpf, string $nome, string $telefone, Endereco $endereco, float $precoTotal)
         {
-            parent:: __construct($cpf,$nome,$telefone,$endereco);
+            parent:: __construct($cpf, $nome, $telefone, $endereco);
             $this -> precoTotal = $precoTotal;
         }//Fim do Construtor
 
