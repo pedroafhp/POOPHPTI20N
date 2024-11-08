@@ -5,12 +5,19 @@
     require_once('Pessoa.php');
     require_once('Funcionario.php');
     require_once('Endereco.php');
+    require_once('DAO/Conexao.php');
+    require_once('DAO/Inserir.php');
+    require_once('DAO/Consultar.php');
 
     use PHP\Modelo\Cliente; //Definir a Classe
     use PHP\Modelo\Pessoa;
     use PHP\Modelo\Funcionario;
     use PHP\Modelo\Endereco;
+    use PHP\Modelo\Dao\Conexao;
+    use PHP\Modelo\Dao\Inserir;
+    use PHP\Modelo\Dao\Consultar;
 
+    /*
     $endCliente = new Endereco("Rua","291","Nogueira","Diadema","São Paulo","Brasil","09950-000");
     $cliente = new Cliente("12345","Pedro","11970707070",$endCliente,560.60); //Criar um Objeto
     $clienteDois = new Cliente("12","João","13",$endCliente,1020.25);
@@ -24,7 +31,17 @@
 
     echo $funcionario -> imprimir();
     echo $endCliente -> imprimir();
+    */
 
+    $conn = new Conexao();
+    $conn -> conectar(); //Acessar o Banco de Dados
 
+    //$inserir = new Inserir(); //Criando Acesso a Classe Inserir
+    //echo $inserir -> cadastrarPessoa($conn,"3","Fabio","Rua","11");
+
+    $consultar = new Consultar();
+    echo $consultar -> consultarIndividual($conn,'1');
+    echo $consultar -> consultarIndividual($conn,'2');
+    echo $consultar -> consultarIndividual($conn,'3');
 
 ?>
