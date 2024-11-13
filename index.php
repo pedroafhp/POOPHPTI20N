@@ -37,10 +37,13 @@ namespace PHP\Modelo;
 
             //Chamar a classe inserir
             $inserir = new Inserir();
-            echo $inserir -> cadastrarPessoa($conexao, $codigo, $nome, $endereco, $telefone);
         ?>
         </button>
-
+        <?php
+            echo $inserir -> cadastrarPessoa($conexao, $codigo, $nome, $endereco, $telefone);
+        ?>
         </form><!-- Fim do Formulário -->
+        <br><br>
+        <a href="menu.php"><button>Voltar</button></a>
     </body>
 </html>

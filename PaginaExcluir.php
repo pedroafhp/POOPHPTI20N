@@ -1,23 +1,23 @@
 <?php 
     namespace PHP\Modelo;
     require_once('DAO\Conexao.php');
-    require_once('DAO\Consultar.php');
+    require_once('DAO\Excluir.php');
     use PHP\Modelo\DAO\Conexao;
-    use PHP\Modelo\DAO\Consultar;
+    use PHP\Modelo\DAO\Excluir;
 ?>
 <!Doctype HTML>
     <head>
         <meta charset="UTF-8"/>
-        <title>Página de Consulta</title>
+        <title>Página Excluir</title>
 
     </head>
     <body>
         <form method="POST">
         <label>Código: </label><br>
-        <input type="number" name="codigo" id="codigo"><br><br>
+        <input type="number" name="codigo" id="codigo"/><br><br>
 
         <button type="submit">
-            Consultar
+            Excluir
         <?php
             //Conexão com o banco
             $conexao = new Conexao();
@@ -25,12 +25,12 @@
             //Coletar o código
             $codigo = $_POST['codigo'];
 
-            //Chamar o consultar
-            $consultar = new Consultar();
+            //Chamar o excluir
+            $excluir = new Excluir();
         ?>
         </button>
         <?php
-            echo $consultar -> consultarIndividual($conexao, $codigo);
+            echo $excluir -> excluirPessoa($conexao, $codigo);
         ?>
         </form><!-- Fim do Formulário -->
         <br><br>
